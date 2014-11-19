@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+
+ext {
+    aspectjVersion = '1.8.2'
+}
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+dependencies {
+    repositories {
+        mavenCentral()
+    }
+    
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:0.11.+'
+    compile "org.aspectj:aspectjtools:${aspectjVersion}"
+    compile "org.aspectj:aspectjrt:${aspectjVersion}"
+}
+
