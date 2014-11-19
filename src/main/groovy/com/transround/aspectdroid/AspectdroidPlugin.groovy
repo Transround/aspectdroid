@@ -31,7 +31,6 @@ class AspectdroidPlugin implements Plugin<Project> {
 
         project.repositories { mavenCentral() }
         project.dependencies {
-            ajtools  "org.aspectj:aspectjtools:${project.aspectjVersion}"
             compile "org.aspectj:aspectjrt:${project.aspectjVersion}"
         }
 
