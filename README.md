@@ -1,4 +1,4 @@
-Aspectroid
+Aspectdroid
 ==========
 
 A Gradle plugin for Android build system. 
@@ -6,7 +6,9 @@ It modifies the default compile*Java tasks to use aspectj's compiler instead of 
 
 Usage
 -----
-* Copy aspectroid.jar to {project}/gradle-libs/aspectroid.jar.
+* Build aspectdroid project
+
+* Copy aspectroid.jar to {project}/gradle-libs/aspectroid-{version}.jar.
 
 * Add the below lines to the buildscript's section: 
 ```groovy
