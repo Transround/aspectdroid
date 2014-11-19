@@ -32,5 +32,5 @@ buildscript {
 
 * Appy the aspectdroid plugin:
 ```groovy
-apply plugin: 'aspectroid'
+apply plugin: 'aspectdroid'
 ```
