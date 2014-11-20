@@ -1,5 +1,10 @@
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+group = 'com.transround'
+version = '1.0.0'
+
 
 ext {
     aspectjVersion = '1.8.2'
@@ -15,8 +20,60 @@ dependencies {
     
     compile gradleApi()
     compile localGroovy()
-    compile 'com.android.tools.build:gradle:0.11.+'
+    compile 'com.android.tools.build:gradle:0.13.+'
     compile "org.aspectj:aspectjtools:${aspectjVersion}"
     compile "org.aspectj:aspectjrt:${aspectjVersion}"
 }
 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from tasks.javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+uploadArchives {
+  repositories {
+      mavenDeployer {
+
+      pom.project {
+        name 'aspectdroid'
+        packaging 'jar'
+        // optionally artifactId can be defined here 
+        description 'A Gradle plugin for Android build system to use aspectj compiler.'
+        url 'https://github.com/Transround/aspectdroid'
+
+        scm {
+          url 'https://github.com/Transround/aspectdroid'
+          connection 'scm:git@github.com:Transround/aspectdroid.git'
+          developerConnection 'scm:git@github.com:Transround/aspectdroid.git'          
+        }
+
+        licenses {
+          license {
+            name 'The Apache License, Version 2.0'
+            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            distribution 'repo'
+          }
+        }
+
+        developers {
+          developer {
+            id 'transround.apps'
+            name 'Transround'
+            email 'transround.apps@gmail.com'
+          }
+        }
+      }
+    }
+  }
+}

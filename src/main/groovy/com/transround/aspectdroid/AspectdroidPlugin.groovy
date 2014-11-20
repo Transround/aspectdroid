@@ -69,7 +69,12 @@ class AspectdroidPlugin implements Plugin<Project> {
                 project.tasks."compile${variantName}Java".deleteAllActions()
                 project.tasks."compile${variantName}Java".dependsOn ajc
 
-                project.tasks."package${variantName}Jar".exclude("**/*.aj")
+                def packageJarTask = project.tasks.findByName("package${variantName}Jar")
+                if( packageJarTask != null ){
+                    project.logger.info 'packageJarTask is exist'
+                    project.tasks."package${variantName}Jar".exclude("**/*.aj")    
+                }                
+
             }
         }
     }
