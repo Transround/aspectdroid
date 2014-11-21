@@ -16,33 +16,29 @@ Usage
 * Use our maven repository
 	+ Add the below lines to the buildscript's section:
 
-		> > ```groovy
-		> >  buildscript {
-		> >    
-		> >       ext {
-		> >           aspectjVersion = '1.8.2'
-		> >       }
-		> >   
-		> >       repositories {
-		> >           mavenCentral()
-		> >           maven {
-		> >            url 'http://www.transround.com/repositories/public/'
-		> >           }
-		> >       }
-		> >   
-		> >       dependencies {        
-		> >           classpath 'com.android.tools.build:gradle:0.13.+'
-		> >           classpath 'com.transround:aspectdroid:1.0.+'
-		> >       }
-		> >   }
-		> > ```	
+		```groovy
+		 buildscript {		   
+		      ext {
+		          aspectjVersion = '1.8.2'
+		      }		  
+		      repositories {
+		          mavenCentral()
+		          maven {
+		           url 'http://www.transround.com/repositories/public/'
+		          }
+		      }		   
+		      dependencies {        
+		          classpath 'com.android.tools.build:gradle:0.13.+'
+		          classpath 'com.transround:aspectdroid:1.0.+'
+		      }
+		  }
+		```	
 	
 	+ Appy the aspectdroid plugin:
-
-		> > 
-		> > ```groovy
-		> > apply plugin: 'aspectdroid'
-		> > ```
+		 
+		```groovy
+			apply plugin: 'aspectdroid'
+		```
 
 * Build it yourself
 	+ Build aspectdroid project
@@ -51,26 +47,23 @@ Usage
 
 	+ Add the below lines to the buildscript's section: 
 
-		> > ```groovy
-		> > buildscript {
-		> >  
-		> >      ext {
-		> >          aspectjVersion = '1.8.2'
-		> >      }
-		> >  
-		> >      repositories {
-		> >          mavenCentral()
-		> >      }
-		> >  
-		> >      dependencies {        
-		> >          classpath 'com.android.tools.build:gradle:0.13.+'
-		> >          classpath "org.aspectj:aspectjtools:${aspectjVersion}"
-		> >          classpath files('gradle-libs/aspectdroid-{version}.jar')       
-		> >      }
-		> >  }
-		> > ```
+		```groovy
+		buildscript {		 
+		     ext {
+		         aspectjVersion = '1.8.2'
+		     }		 
+		     repositories {
+		         mavenCentral()
+		     }		 
+		     dependencies {        
+		         classpath 'com.android.tools.build:gradle:0.13.+'
+		         classpath "org.aspectj:aspectjtools:${aspectjVersion}"
+		         classpath files('gradle-libs/aspectdroid-{version}.jar')       
+		     }
+		}
+		```
  
 	+ Appy the aspectdroid plugin:
-		> > ```groovy
-		> > apply plugin: 'aspectdroid'
-		> > ```
+		```groovy
+			apply plugin: 'aspectdroid'
+		```
